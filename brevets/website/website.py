@@ -9,24 +9,26 @@ def home():
     return render_template('index.html')
 
 
-@app.route('/ListAll')
-def listeverything():
+@app.route('/listAll')
+def listall():
     dtype = request.args.get('dtype')
     top = request.args.get('top')
     app.logger.debug(top)
-    r = requests.get('http://restapi:5000/ListAll/'+dtype, params={'top': top})
+    r = requests.get('http://restapi:5000/listAll/'+dtype, params={'top': top})
     return r.text
 
-@app.route('/ListOpenOnly')
+@app.route('/listOpenOnly')
 def listopen():
     dtype = request.args.get('dtype')
-    r = requests.get('http://restapi:5000/ListOpenOnly/'+dtype)
+    top = request.args.get('top')
+    r = requests.get('http://restapi:5000/listOpenOnly/'+dtype, params={'top': top})
     return r.text
 
-@app.route('/ListCloseOnly')
+@app.route('/listCloseOnly')
 def listclose():
     dtype = request.args.get('dtype')
-    r = requests.get('http://restapi:5000/ListCloseOnly/'+dtype)
+    top = request.args.get('top')
+    r = requests.get('http://restapi:5000/listCloseOnly/'+dtype, params={'top': top})
     return r.text
 
 if __name__ == '__main__':

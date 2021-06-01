@@ -42,8 +42,8 @@ def json_form(topk, d):
 class ListAll(Resource):
     def get(self):
         d=''
-        topk=-1
-        return json_form(topk, d)
+        k=-1
+        return json_form(k, d)
 
 class ListAll_Type(Resource):
     def get(self, dtype):
@@ -57,8 +57,8 @@ class ListAll_Type(Resource):
 class ListOpenOnly(Resource):
     def get(self):
         d='close'
-        topk=-1
-        return json_form(topk, d)
+        k=-1
+        return json_form(k, d)
 
 class ListOpenOnly_Type(Resource):
     def get(self, dtype):
@@ -69,12 +69,11 @@ class ListOpenOnly_Type(Resource):
 
         return json_form(k, d)
 
-
 class ListCloseOnly(Resource):
     def get(self):
         d='open'
-        topk=-1
-        return json_form(topk, d)
+        k=-1
+        return json_form(k, d)
 
 class ListCloseOnly_Type(Resource):
     def get(self, dtype):
@@ -86,15 +85,14 @@ class ListCloseOnly_Type(Resource):
         return json_form(k, d)
 
 #resources
-api.add_resource(ListAll, '/ListAll')
-api.add_resource(ListAll_Type, '/ListAll/<string:dtype>')
-#api.add_resource(ListAll_Type_topk, '/ListAll/<string:dtype>?<int:top>')
+api.add_resource(ListAll, '/listAll')
+api.add_resource(ListAll_Type, '/listAll/<string:dtype>')
 
-api.add_resource(ListOpenOnly, '/ListOpenOnly')
-api.add_resource(ListOpenOnly_Type, '/ListOpenOnly/<string:dtype>')
+api.add_resource(ListOpenOnly, '/listOpenOnly')
+api.add_resource(ListOpenOnly_Type, '/listOpenOnly/<string:dtype>')
 
-api.add_resource(ListCloseOnly, '/ListCloseOnly')
-api.add_resource(ListCloseOnly_Type, '/ListCloseOnly/<string:dtype>')
+api.add_resource(ListCloseOnly, '/listCloseOnly')
+api.add_resource(ListCloseOnly_Type, '/listCloseOnly/<string:dtype>')
 
 # Run the application
 if __name__ == '__main__':
