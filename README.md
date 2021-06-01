@@ -3,11 +3,7 @@ Brevet time calculator with AJAX, MongoDB, and a RESTful API!
 
 Maintainer - Derek Pinto dpinto@uoregon.edu
 
-Brevet time calculator.
 
-## Overview
-
-Reimplement the RUSA ACP controle time calculator with Flask and AJAX.
 
 ### ACP controle times
 
